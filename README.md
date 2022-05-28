@@ -18,7 +18,7 @@ To use the library you will need to request the library with loadstring.
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxArchiver/G.E.C.K/main/src/init.lua"))()
 ```
 
-### `library.MakeTool(TOOL_CONFIG)`
+## `library.MakeTool(TOOL_CONFIG)`
 
 TOOL_CONFIG is a table that stores data, this allows for the "Is there or not" nature of G.E.C.K. 
 Most if not ALL instances are optional. 
