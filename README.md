@@ -10,7 +10,7 @@ Credits:
 
 # Documentation
 
-### Loadstring
+## Loadstring
 
 To use the library you will need to request the library with loadstring.
 
