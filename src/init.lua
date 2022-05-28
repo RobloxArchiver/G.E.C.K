@@ -1,7 +1,8 @@
-local GECK = { VERSION = "0.3" }
+local GECK = { VERSION = "0.4" }
 
 function GECK.MakeTool(TOOL_CONFIG)
     local TOOL = {}
+    local TOOL_SCRIPT = {};
     local TOOL_INSTANCE = Instance.new("Tool")
 
     if (TOOL_CONFIG.Name and typeof(TOOL_CONFIG.Name) == "string") then
@@ -72,6 +73,11 @@ function GECK.MakeTool(TOOL_CONFIG)
         TOOL["GRIP_UP"] = TOOL_CONFIG.GripUp
     end
 
+    if (TOOL_CONFIG.Script and typeof(TOOL_CONFIG.Script) == "function") then
+        TOOL_SCRIPT["SCRIPT_SOURCE"] = TOOL_CONFIG.Script
+        TOOL_SCRIPT["CREATED"] = true
+    end
+
     TOOL_INSTANCE.Name = TOOL.NAME
     TOOL_INSTANCE.Archivable = TOOL.ARCHIVABLE
     TOOL_INSTANCE.Parent = TOOL.PARENT
@@ -99,6 +105,12 @@ function GECK.MakeTool(TOOL_CONFIG)
 
     if TOOL.GRIP_UP then
         TOOL_INSTANCE.GripUp = TOOL.GRIP_UP
+    end
+
+    if (TOOL_SCRIPT.CREATED and TOOL_SCRIPT.CREATED == true) then
+        TOOL_INSTANCE.Activated:Connect(function()
+            TOOL_SCRIPT.SCRIPT_SOURCE()
+        end)
     end
 end
 
