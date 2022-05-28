@@ -38,8 +38,28 @@ library.MakeTool({
     GripPos = Vector3.new(0, 0, 0), --> Optional::NO DEFAULT
     GripRight = Vector3.new(0, 0, 0), --> Optional::NO DEFAULT
     GripUp = Vector3.new(0, 0, 0), --> Optional::NO DEFAULT
-    Script = function() 
+    Script = function()  --> Optional::NO DEFAULT
         print("hi!") 
-    end --> Optional::NO DEFAULT
+    end
 })
 ```
+
+## `library.MakePart(PART_CONFIG)`
+
+Same as TOOL_CONFIG, PART_CONFIG is a table containing optional data. Mostly everything has a default, and all is optional!
+
+```lua
+library.MakePart({
+    Name = "Test Part", --> Optional::Default = "GPart"
+    Parent = game.Workspace, --> Optional::Default = "game.Workspace"
+    Archivable = true, --> Optional::Default = true
+    Shape = Enum.PartType.Block, --> Optional::Default = Enum.PartType.Block
+    Anchored = true, --> Optional::Default = true
+    BrickColor = BrickColor.new("White"), --> Optional::Default = true
+    CFrame = CFrame.new(0, 0, 0), --> Optional::Default = CFrame.new(0, 0, 0)
+    CanCollide = false, --> Optional::Default = false
+    Color = Color3.new(1, 1, 1), --> Optional::Default = Color3.new(1, 1, 1)
+    Position = Vector3.new(0, 0, 0), --> Optional::Default = Vector3.new(0, 0, 0)
+    Size = Vector3.new(1, 1, 1), --> Optional::Default = Vector3.new(1, 1, 1)
+    Transparency = 0 --> Optional::Default = 0
+})
